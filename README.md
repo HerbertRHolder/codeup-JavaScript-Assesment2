@@ -116,6 +116,17 @@
         sumOfSquares(2, false)      // false
         sumOfSquares(null)          // false
         sumOfSquares()              // false
+        
+1. Write a function named `containsVowel` that takes in a single input as its argument. If the argument is not a string, then return `false`. If the argument is a string, then return true if the string contains any of the vowels 'a', 'e', 'i', 'o', or 'u' either uppercased or lowercased. Ignore 'y'. If the string does not contain any of these vowels, then return `false`. 
+    
+        containsVowel("Index")      // true
+        containsVowel("Codeup")     // true
+        containsVowel("Jane")       // true
+        containsVowel("bb8")        // false
+        containsVowel("")           // false
+        containsVowel(34)           // false
+        containsVowel([1, 2, 3])    // false
+
 
 1. Write a function named `isPalindrome` that takes in a single input. If the input is a numeric string, then return `false`. If the input is a string, then return true if the string is the same forwards as it is backwards. Return false if the string is different forwards from backwards. Ignore capitalization.
         
