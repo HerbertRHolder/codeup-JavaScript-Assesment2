@@ -43,16 +43,6 @@
         isNumeric("Bob")            // false
         isNumeric([1,2,3])          // false
 
-1. Define a function named `isNotNumeric` that accepts an input and returns `true` or `false` based on whether an input is a non-numeric value or not. Numeric strings are numeric and should return false.
-
-        isNotNumeric("")               // true
-        isNotNumeric(true)             // true
-        isNotNumeric("Bob")            // true
-        isNotNumeric([1,2,3])          // true
-        isNotNumeric(23)               // false
-        isNotNumeric("42")             // false
-        isNotNumeric(3.141)            // false
-
 1. Define a function named `increment` that takes in an input and adds 1 to it if the input is numeric. If the input is not numeric, then return false.
         
         increment(0)                // 1
