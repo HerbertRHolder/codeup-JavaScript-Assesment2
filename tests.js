@@ -3,7 +3,6 @@
 /** 
  * Tests for the following functions. See README.md for more detail.
  * isNumeric
- * isNotNumeric
  * square
  * add
  * multiply
@@ -12,6 +11,7 @@
  * decrement
  * isPalindrome
  * getHighestNumber(a, b, c)
+ * containsVowel
  */
 
 const randomBoolean = Boolean(Math.round(Math.random()));
@@ -75,57 +75,6 @@ describe('isNumeric', function() {
     });
 });
 
-describe('isNotNumeric', function() {
-    it('should be a defined function', function() {
-        expect(typeof isNotNumeric).toBe('function');
-    });
-    it('should return a boolean value', function() {
-        expect(typeof isNotNumeric(4)).toBe('boolean');
-        expect(typeof isNotNumeric("Bob")).toBe('boolean');
-    });
-    it('should return false when passed 0 as input', function() {
-        expect(isNotNumeric(0)).toBe(false);
-    });
-    it('should return false when passed -5 as input', function() {
-        expect(isNotNumeric(-5)).toBe(false);
-    });
-    it('should return false when passed ' + randomNegativeNumber, function() {
-        expect(isNotNumeric(randomNegativeNumber)).toBe(false);
-    });
-    it('should return false when passed ' + randomPositiveNumber, function() {
-        expect(isNotNumeric(randomPositiveNumber)).toBe(false);
-    });
-    it('should return false when passed a numeric string like "123" as input', function() {
-        expect(isNotNumeric("123")).toBe(false);
-    });
-    it('should return false when passed a numeric string of "' + randomPositiveNumber + '"', function() {
-        expect(isNotNumeric(String(randomPositiveNumber))).toBe(false);
-    });
-    it('should return false when passed a numeric string of "' + randomNegativeNumber + '"', function() {
-        expect(isNotNumeric(String(randomNegativeNumber))).toBe(false);
-    });
-    it('should return false when passed Infinity, since infinity is numeric.', function() {
-        expect(isNotNumeric(Infinity)).toBe(false);
-    });
-    it('should return true when passed the boolean ' + randomBoolean, function() {
-        expect(isNotNumeric(randomBoolean)).toBe(true);
-    });
-    it('should return true when passed the non-numeric string "Grace Hopper', function() {
-        expect(isNotNumeric(exampleString)).toBe(true);
-    });
-    it('should return true when passed null as the input', function() {
-        expect(isNotNumeric(null)).toBe(true);
-    });
-    it('should return true when passed an array', function() {
-        expect(isNotNumeric(exampleArray)).toBe(true);
-    });
-    it('should return true when passed an object', function() {
-        expect(isNotNumeric(exampleObject)).toBe(true);
-    });
-    it('should return true when no input is passed in as an argument', function() {
-        expect(isNotNumeric()).toBe(true);
-    });
-});
 
 describe('increment', function() {
     it('should be a defined function', function() {
@@ -454,5 +403,42 @@ describe('isPalindrome', function() {
     });
     it('should return false when passed the array [1, 2, 3]', function() {
         expect(isPalindrome([1, 2, 3])).toBe(false);
+    });
+});
+
+describe('containsVowel', function() {
+    it('should be a defined function', function() {
+        expect(typeof containsVowel).toBe('function');
+    });
+    it('should return a boolean value no matter what inputs are passed.', function() {
+        expect(typeof containsVowel("Bob")).toBe('boolean');
+        expect(typeof containsVowel(45)).toBe('boolean');
+    });
+    it('should return true when passed the input "Bob"', function() {
+        expect(containsVowel("Bob")).toBe(true);
+    });
+    it('should return true when passed the input "Jane"', function() {
+        expect(containsVowel("Jane")).toBe(true);
+    });
+    it('should return true when the input provided is "Codeup"', function() {
+        expect(containsVowel("Codeup")).toBe(true);
+    });
+    it('should return true when passed ' + randomString, function() {
+        expect(containsVowel(randomString)).toBe(true);
+    });
+    it('should return false when the provided input is the empty string ""', function() {
+        expect(containsVowel("")).toBe(false);
+    });
+    it('should return false when the input provided is "brb"', function() {
+        expect(containsVowel("brb")).toBe(false);
+    });
+    it('should return false when the provided input is a number like ' + randomPositiveNumber, function() {
+        expect(containsVowel(randomPositiveNumber)).toBe(false);
+    });
+    it('should return false when the input is an array', function() {
+        expect(containsVowel(exampleArray)).toBe(false);
+    });
+    it('should return false when called with no input', function() {
+        expect(containsVowel()).toBe(false);
     });
 });
