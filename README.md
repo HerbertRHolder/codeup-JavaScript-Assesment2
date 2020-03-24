@@ -33,25 +33,15 @@
 
 ## Problems
 
-1. Define a function named `isNumeric` that takes in a value and returns true if the input is numeric or not. Numeric strings are numeric and should return true.
+1. Define a function named `isANumber` that takes in a value and returns true if the input is numeric or not. Numeric strings are not considered as numbers and should return false.
         
-        isNumeric(23)               // true
-        isNumeric("42")             // true
-        isNumeric(3.141)            // true
-        isNumeric("")               // false
-        isNumeric(true)             // false
-        isNumeric("Bob")            // false
-        isNumeric([1,2,3])          // false
-
-1. Define a function named `isNotNumeric` that accepts an input and returns `true` or `false` based on whether an input is a non-numeric value or not. Numeric strings are numeric and should return false.
-
-        isNotNumeric("")               // true
-        isNotNumeric(true)             // true
-        isNotNumeric("Bob")            // true
-        isNotNumeric([1,2,3])          // true
-        isNotNumeric(23)               // false
-        isNotNumeric("42")             // false
-        isNotNumeric(3.141)            // false
+        isANumber(23)               // true
+        isANumber("42")             // false
+        isANumber(3.141)            // true
+        isANumber("")               // false
+        isANumber(true)             // false
+        isANumber("Bob")            // false
+        isANumber([1,2,3])          // false
 
 1. Define a function named `increment` that takes in an input and adds 1 to it if the input is numeric. If the input is not numeric, then return false.
         
@@ -83,6 +73,15 @@
         getHighestNumber(1, 2, 'x')         // false
         getHighestNumber("a", "b")          // false
         getHighestNumber()                  // false
+        
+1. Define a function named `parseNumber` that parses (converts) a numeric String and returns it's value as a number, the function should be able to decide if it should be parsing an Integer or a Float value.
+        
+        parseNumber("123")            // 123
+        parseNumber(123)              // 123
+        parseNumber("34.4")           // 34.4
+        parseNumber(10.5)             // 10.5
+        parseNumber("-2")             // -2
+        parseNumber("-10.4")          // -10.4
         
 1. Write a function named `add` that takes in two inputs. If both inputs provided are numeric, `add` will return the sum of both inputs. If one or both inputs is not numeric, `add` should return false.
         

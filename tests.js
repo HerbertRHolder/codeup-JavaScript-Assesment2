@@ -2,7 +2,7 @@
 
 /** 
  * Tests for the following functions. See README.md for more detail.
- * isNumeric
+ * isANumber
  * isNotNumeric
  * square
  * add
@@ -17,113 +17,78 @@
 const randomBoolean = Boolean(Math.round(Math.random()));
 const randomPositiveNumber = Math.ceil(Math.random() * 100);
 const randomNegativeNumber = Math.ceil(Math.random() * 100) * -1;
+const randomFloatingNumber = Number((Math.random() * (10.00 - 1.00 + 1.00) + 1.00).toFixed(2));
+const randomNegFloatingNumber = Number((-1 * Math.random() * (10.00 - 1.00 + 1.00) + 1.00).toFixed(2));
 const exampleObject = { "firstName": "Grace", "lastName": "Hopper"};
 const exampleArray = ['Grace Hopper', 'Ada Lovelace', 'Margaret Hamilton', 'Sandi Metz'];
 const exampleString = "Grace Hopper";
 const randomIndex = Math.floor(Math.random() * exampleArray.length);
 const randomString = exampleArray[randomIndex];
 
-describe('isNumeric', function() {
+describe('isANumber', function() {
     it('should be a defined function', function() {
-        expect(typeof isNumeric).toBe('function');
+        expect(typeof isANumber).toBe('function');
     });
     it('should return a boolean value', function() {
-        expect(typeof isNumeric(4)).toBe('boolean');
-        expect(typeof isNumeric("Bob")).toBe('boolean');
+        expect(typeof isANumber(4)).toBe('boolean');
+        expect(typeof isANumber("Bob")).toBe('boolean');
     });
     it('should return true when passed 0 as input', function() {
-        expect(isNumeric(0)).toBe(true);
+        expect(isANumber(0)).toBe(true);
     });
     it('should return true when passed -5 as input', function() {
-        expect(isNumeric(-5)).toBe(true);
+        expect(isANumber(-5)).toBe(true);
     });
     it('should return true when passed ' + randomNegativeNumber, function() {
-        expect(isNumeric(randomNegativeNumber)).toBe(true);
+        expect(isANumber(randomNegativeNumber)).toBe(true);
     });
     it('should return true when passed ' + randomPositiveNumber, function() {
-        expect(isNumeric(randomPositiveNumber)).toBe(true);
-    });
-    it('should return true when passed a numeric string like "123" as input', function() {
-        expect(isNumeric("123")).toBe(true);
-    });
-    it('should return true when passed a numeric string of "' + randomPositiveNumber + '"', function() {
-        expect(isNumeric(String(randomPositiveNumber))).toBe(true);
-    });
-    it('should return true when passed a numeric string of "' + randomNegativeNumber + '"', function() {
-        expect(isNumeric(String(randomNegativeNumber))).toBe(true);
+        expect(isANumber(randomPositiveNumber)).toBe(true);
     });
     it('should return true when passed Infinity, since infinity is numeric.', function() {
-        expect(isNumeric(Infinity)).toBe(true);
+        expect(isANumber(Infinity)).toBe(true);
     });
     it('should return false when passed the boolean ' + randomBoolean, function() {
-        expect(isNumeric(randomBoolean)).toBe(false);
+        expect(isANumber(randomBoolean)).toBe(false);
     });
     it('should return false when passed the non-numeric string "Grace Hopper', function() {
-        expect(isNumeric(exampleString)).toBe(false);
+        expect(isANumber(exampleString)).toBe(false);
     });
     it('should return false when passed null as the input', function() {
-        expect(isNumeric(null)).toBe(false);
+        expect(isANumber(null)).toBe(false);
     });
     it('should return false when passed an array', function() {
-        expect(isNumeric(exampleArray)).toBe(false);
+        expect(isANumber(exampleArray)).toBe(false);
     });
     it('should return false when passed an object', function() {
-        expect(isNumeric(exampleObject)).toBe(false);
+        expect(isANumber(exampleObject)).toBe(false);
     });
     it('should return false when no input is passed in as an argument', function() {
-        expect(isNumeric()).toBe(false);
+        expect(isANumber()).toBe(false);
     });
 });
 
-describe('isNotNumeric', function() {
+describe('parseNumber', function() {
     it('should be a defined function', function() {
-        expect(typeof isNotNumeric).toBe('function');
+        expect(typeof parseNumber).toBe('function');
     });
-    it('should return a boolean value', function() {
-        expect(typeof isNotNumeric(4)).toBe('boolean');
-        expect(typeof isNotNumeric("Bob")).toBe('boolean');
+    it('should return 123 when passed a numeric string like "123" as input', function() {
+        expect(parseNumber("123")).toBe(123);
     });
-    it('should return false when passed 0 as input', function() {
-        expect(isNotNumeric(0)).toBe(false);
+    it('should return 123 when passed a number like 123 as input', function() {
+        expect(parseNumber(123)).toBe(123);
     });
-    it('should return false when passed -5 as input', function() {
-        expect(isNotNumeric(-5)).toBe(false);
+    it('should return ' + randomNegFloatingNumber + ' when passed a numeric string of "' + randomNegFloatingNumber + '"', function() {
+        expect(parseNumber(String(randomNegFloatingNumber))).toBe(randomNegFloatingNumber);
     });
-    it('should return false when passed ' + randomNegativeNumber, function() {
-        expect(isNotNumeric(randomNegativeNumber)).toBe(false);
+    it('should return ' + randomNegativeNumber + ' when passed a numeric string of "' + randomNegativeNumber + '"', function() {
+        expect(parseNumber(String(randomNegativeNumber))).toBe(randomNegativeNumber);
     });
-    it('should return false when passed ' + randomPositiveNumber, function() {
-        expect(isNotNumeric(randomPositiveNumber)).toBe(false);
+    it('should return ' + randomFloatingNumber + ' when passed a floating number of ' + randomFloatingNumber, function() {
+        expect(parseNumber(randomFloatingNumber)).toBe(randomFloatingNumber);
     });
-    it('should return false when passed a numeric string like "123" as input', function() {
-        expect(isNotNumeric("123")).toBe(false);
-    });
-    it('should return false when passed a numeric string of "' + randomPositiveNumber + '"', function() {
-        expect(isNotNumeric(String(randomPositiveNumber))).toBe(false);
-    });
-    it('should return false when passed a numeric string of "' + randomNegativeNumber + '"', function() {
-        expect(isNotNumeric(String(randomNegativeNumber))).toBe(false);
-    });
-    it('should return false when passed Infinity, since infinity is numeric.', function() {
-        expect(isNotNumeric(Infinity)).toBe(false);
-    });
-    it('should return true when passed the boolean ' + randomBoolean, function() {
-        expect(isNotNumeric(randomBoolean)).toBe(true);
-    });
-    it('should return true when passed the non-numeric string "Grace Hopper', function() {
-        expect(isNotNumeric(exampleString)).toBe(true);
-    });
-    it('should return true when passed null as the input', function() {
-        expect(isNotNumeric(null)).toBe(true);
-    });
-    it('should return true when passed an array', function() {
-        expect(isNotNumeric(exampleArray)).toBe(true);
-    });
-    it('should return true when passed an object', function() {
-        expect(isNotNumeric(exampleObject)).toBe(true);
-    });
-    it('should return true when no input is passed in as an argument', function() {
-        expect(isNotNumeric()).toBe(true);
+    it('should return ' + randomFloatingNumber + ' when passed a numeric string of "' + randomFloatingNumber + '"', function() {
+        expect(parseNumber(String(randomFloatingNumber))).toBe(randomFloatingNumber);
     });
 });
 
