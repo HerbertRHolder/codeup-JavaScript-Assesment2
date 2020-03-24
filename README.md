@@ -29,7 +29,7 @@
 
 1. Read the Testing instructions below.
 
-1. Add, commit, and push to your `firstName-lastName` branch to GitHub.
+1. Add, commit often (preferably every time you finish a problem), and only push your `firstName-lastName` branch to GitHub when an instructor tells you to.
 
 ## Problems
 
