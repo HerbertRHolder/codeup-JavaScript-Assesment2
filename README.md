@@ -152,7 +152,7 @@ The automated tests provide immediate feedback as to whether or not your solutio
 
 - Your grade is entirely dependent on the completeness of your solutions. No credit will be given for code that cannot run due to typos or syntax errors. 
 
-- There are multiple spec tests for each question. Each solution will be provided a number of known inputs and expected ouputs. This is to make sure that the solution will operate accurately under different conditions. 
+- There are multiple spec tests for each question. Each solution will be provided a number of known inputs and expected outputs. This is to make sure that the solution will operate accurately under different conditions. 
 
 - All the specs for a given unit test need to be green for the solution to earn credit. For example, all of the specs for the `isBoolean` unit must be green for the solution to count towards the grade.
 
@@ -160,7 +160,7 @@ The automated tests provide immediate feedback as to whether or not your solutio
 
 - If all the specs are green for 9 of the functions under test and one unit test has red specs, then the grade is 9/10 or a 90%.
 
-- If there are red, failing specs in each of the unit tests for all the functions, then the grade is a 0. This is because each funciton solution needs to be whole and complete. 
+- If there are red, failing specs in each of the unit tests for all the functions, then the grade is a 0. This is because each function solution needs to be whole and complete. 
 
 ## Hints
 - If you have green tests and notice that everything is now completely red, it means you likely have a syntax error or a type error in your code. Those kinds of errors will keep all the code from executing properly.
