@@ -150,17 +150,19 @@ The automated tests provide immediate feedback as to whether or not your solutio
 
 ## How solutions will be graded
 
-- Your grade is entirely dependent on the completeness of your solutions. No credit will be given for code that cannot run due to typos or syntax errors. 
+- Your grade is entirely dependent on the completeness of your solutions
 
-- There are multiple spec tests for each question. Each solution will be provided a number of known inputs and expected outputs. This is to make sure that the solution will operate accurately under different conditions. 
+- No credit will be given for code that cannot run due to typos or syntax errors.
 
-- All the specs for a given unit test need to be green for the solution to earn credit. For example, all of the specs for the `isBoolean` unit must be green for the solution to count towards the grade.
+- No credit will be given for commented out code.
 
-- If all the specs for all the units are green, then a grade of 100% is earned.
+- There are ten questions on the test. Below is an example of how a question appears on the test.<br><kbd><img src="./images/test-question.png" ></kbd>
 
-- If all the specs are green for 9 of the functions under test and one unit test has red specs, then the grade is 9/10 or a 90%.
+- Each question counts for 10 points of the final grade.
 
-- If there are red, failing specs in each of the unit tests for all the functions, then the grade is a 0. This is because each function solution needs to be whole and complete. 
+- For a question to be counted as correct all specs must pass for the question.<br><kbd><img src="./images/correct-answer.png" ></kbd>
+
+- If any of the specs are red for the question then the entire question will be considered incorrect.<br><kbd><img src="./images/incorrect-answer.png" ></kbd>
 
 ## Hints
 - If you have green tests and notice that everything is now completely red, it means you likely have a syntax error or a type error in your code. Those kinds of errors will keep all the code from executing properly.
