@@ -11,7 +11,7 @@
 
 - Programing fundamentals in JavaScript
     - Working with values, variables, and data types
-    - Using assignment and comparision operators
+    - Using assignment and comparison operators
     - Working with JS internal functions to make decisions and perform actions.
     - Using conditional logic to make decisions inside functions
     - Writing functions that take in inputs, process, and return outputs.
@@ -33,7 +33,7 @@
 
 ## Problems
 
-1. Define a function named `isANumber` that takes in a value and returns true if the input is numeric or not. Numeric strings are not considered as numbers and should return false.
+1. Define a function named `isANumber` that takes in a value and returns true if the input is numeric, or false if the input is not numeric. Numeric strings should not be considered as numbers in this function, and should return false.
         
         isANumber(23)               // true
         isANumber("42")             // false
@@ -74,7 +74,7 @@
         getHighestNumber("a", "b")          // false
         getHighestNumber()                  // false
         
-1. Define a function named `parseNumber` that parses (converts) a numeric String and returns it's value as a number, the function should be able to decide if it should be parsing an Integer or a Float value.
+1. Define a function named `parseNumber` that parses (converts) a numeric String and returns its value as a number, the function should be able to decide if it should be parsing an Integer or a Float value.
         
         parseNumber("123")            // 123
         parseNumber(123)              // 123
